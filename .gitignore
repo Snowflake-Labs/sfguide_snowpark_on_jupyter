@@ -1,5 +1,6 @@
 creds/**
-extraJars/**
+notebook/extraJars/**
+notebook/.ipynb_checkpoints
 repl_classes/**
 .ipynb_checkpoints/**
 !creds/template_credentials.sc
