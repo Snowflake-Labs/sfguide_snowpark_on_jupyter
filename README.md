@@ -4,18 +4,18 @@
 
 The first notebook of this series shows the ease of use as well as the power of running Jupyter Notebooks via the Snowpark API on top of Snowflake. All notebooks will be fully self contained, meaning all you need for processing and analyzing datasets with billions of rows is a Snowflake account. If you do not already have a snowflake account, just follow the steps in sign up. A time limited account for trial purposes is free and doesn't even require a credit card.
 
-- [Quick Start](snowtrek_v2/notebook/Part1.ipynb) 
-- [Hello World](snowtrek_v2/notebook/Part1.ipynb)
-- [Snowflake Dataframes](snowtrek_v2/notebook/Part1.ipynb)
+- [Quick Start](notebook/Part1.ipynb) 
+- [Hello World](notebook/Part1.ipynb)
+- [Snowflake Dataframes](notebook/Part1.ipynb)
 
 The second part of the series focuses advanced Snowflake Dataframe API as well as user defined functions.
 
-- [Advanced API features and Visualization](snowtrek_v2/notebook/Part2.ipynb)
-- [User Defined Functions](snowtrek_v2/notebook/Part2.ipynb)
+- [Advanced API features and Visualization](notebook/Part2.ipynb)
+- [User Defined Functions](notebook/Part2.ipynb)
 
 The last part of the series shows an end-to-end ML use-case
 
-- [ML integration using Weka Machine Learning](snowtrek_v2/notebook/Part3.ipynb)
+- [ML integration using Weka Machine Learning](notebook/Part3.ipynb)
 
 Snowtrek V2 has been tested on [Snowtire](https://community.snowflake.com/s/article/Snowtire-A-Data-Science-Sandbox-for-Snowflake). All steps necessary to build the environment for Snowtrek V2 are included in this repo but please review the [Snowtire Documentation](https://github.com/zoharsan/snowtire_v2) documentation since it includes valuable info on how to troubleshoot your docker image.  
 
