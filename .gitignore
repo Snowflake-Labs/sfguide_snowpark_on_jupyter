@@ -1,5 +1,5 @@
-creds/**
 **/extraJars/**
 **/repl_classes/**
 **/.ipynb_checkpoints/**
-!creds/template_credentials.sc
+creds/**
+!creds/template_credentials.txt
