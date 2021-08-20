@@ -26,7 +26,7 @@ Versions used in this notebook are up-to-date as of August 2021. Please update t
     
 - [Part 3](notebook/part1/part3.ipynb) 
 
-    The first notebook combines the learnings from part 1 & 2. It implements an end-to-end ML use-case including data ingestion, ETL/ELT transformations, Model training, Model scoring, and finally result visualization.
+    The third notebook combines the learnings from part 1 & 2. It implements an end-to-end ML use-case including data ingestion, ETL/ELT transformations, Model training, Model scoring, and finally result visualization.
     
 ## Running Jupyter via Snowtire V2
 
