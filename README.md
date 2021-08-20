@@ -2,22 +2,35 @@
 
 ![](jpg/stock_small.jpg)
 
-The first notebook of this series shows the ease of use as well as the power of running Jupyter Notebooks via the Snowpark API on top of Snowflake. All notebooks will be fully self contained, meaning all you need for processing and analyzing datasets with billions of rows is a Snowflake account. If you do not already have a snowflake account, just follow the steps in sign up. A time limited account for trial purposes is free and doesn't even require a credit card.
+Snowtrek V2 is a project to show how to get started with Jupyter Notebooks on [Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/index.html), new Product feature announced by Snowflake for [public preview](https://www.snowflake.com/blog/welcome-to-snowpark-new-data-programmability-for-the-data-cloud/)  during the 2021 Snowflake Summit. With Snowtrek V2 you will learn how to tackle real world business problems as straight forward as ELT processing but also as diverse as math with rational numbers with unbound precision, sentiment analysis or Machine Learning.
 
-- [Quick Start](notebook/Part1.ipynb) 
-- [Hello World](notebook/Part1.ipynb)
-- [Snowflake Dataframes](notebook/Part1.ipynb)
+Snowpark not only works with Jupypter Notebooks but with a variaty of IDE's. Instructions on how to set up your favorite development environment can be found [here](https://docs.snowflake.com/en/developer-guide/snowpark/setup.html). 
 
-The second part of the series focuses advanced Snowflake Dataframe API as well as user defined functions.
+So what is Snowpark? Snowpark is the glue between different programmaing languages and Snowflake. In the past we had drivers (Python, Spark, JDBC, and many more) to access data in Snowflake from different programming environments. When accessing Snowflake through these drivers, results had to be passed back and force for processing which may raise performance and scalability concerns when processing big datasets. We also had User Defined Functions or UDFs, which execute custom code directly within the Snowflake engine but UDFs didnt have access to already existing standard libraries and had limited language support. With Snowpark we remove both issues. The current version of Snowpark introduces support for Scala and more lanuage support to follow. Snowpark enables us to take advantage of standard libraries to bring custom features directly to data in Snowflake to create a scalable and easy to use experience in the Data Cloud. 
 
-- [Advanced API features and Visualization](notebook/Part2.ipynb)
-- [User Defined Functions](notebook/Part2.ipynb)
+This repo is structure in multiple parts. Each part has a [notebook](notebook) with a different focus. All notebooks in this series require a Jupyter notebook environment with a Scala kernel. If you do not already have access to that type of environment I would higly recommend to use [Snowtire V2](https://github.com/zoharsan/snowtire_v2) and this excellent [post](https://medium.com/snowflake/from-zero-to-snowpark-in-5-minutes-72c5f8ec0b55). Instructions on how to build the Snowtire V2 environment for Snowtrek V2 can be found below. 
 
-The last part of the series shows an end-to-end ML use-case
+All notebooks will be fully self contained, meaning all you need for processing and analyzing datasets with billions of rows is a Snowflake account. If you do not already have a snowflake account, just follow the steps in [sign up](https://signup.snowflake.com/). A time limited  account for trial purposes is free and doesn't even require a credit card. 
 
-- [ML integration using Weka Machine Learning](notebook/Part3.ipynb)
+Versions used in this notebook are up-to-date as of August 2021. Please update them as necessary in the Snowtire setup step.
 
-Snowtrek V2 has been tested on [Snowtire](https://community.snowflake.com/s/article/Snowtire-A-Data-Science-Sandbox-for-Snowflake). All steps necessary to build the environment for Snowtrek V2 are included in this repo but please review the [Snowtire Documentation](https://github.com/zoharsan/snowtire_v2) documentation since it includes valuable info on how to troubleshoot your docker image.  
+
+- [Part 1](notebook/part1/part1.ipynb) 
+
+    The first notebook in this series provides a quick-start guide and an introduction to the Snowpark dataframe API. The notebook explains the steps 
+    for  setting up the environment (REPL), and how to resolve dependencies to Snowpark. After a simple "Hello World" example you will learn about the Snowflake dataframe API, projections, filters, and joins. 
+
+- [Part 2](notebook/part1/part2.ipynb) 
+
+    The second notebook in the series builds on the quick-start of the first part. Using the TPCH datset in the sample database, it shows how to use aggregations and pivot functions in the Snowpark dataframe API. Then it introduces UDFs and how to build a stand-alone UDF, i.e. a UDF that only uses standard primitives. From there we will learn how to use thrid party Scala libraries to perform much more complex tasks like math for numbers with unbound (unlimited number of significant digits) precision or how to perform sentiment analysis on an arbitrary string.
+    
+- [Part 3](notebook/part1/part3.ipynb) 
+
+    The first notebook combines the learnings from part 1 & 2. It implements an end-to-end ML use-case including data ingestion, ETL/ELT transformations, Model training, Model scoring, and finally result visualization.
+    
+## Running Jupyter via Snowtire V2
+
+The following instructions show to to build a Notebook server using a docker container. After the base install of Snowtire V2, we will add few parameters for *[nbextensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)*.
 
 1. Download and install [Docker](https://docs.docker.com/docker-for-mac/install/)
 
