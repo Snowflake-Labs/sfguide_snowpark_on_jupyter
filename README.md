@@ -70,7 +70,7 @@ The following instructions show to to build a Notebook server using a docker con
         
 1. Start den Snowtire container and mount the snowtrek directory to the container. The command below assumes that you cloned snowtrek to ~/DockerImages/snowtrek. Adjust the path accordingly if necessary. 
 
-        docker run -p 8888:8888 -v ~/DockerImages/snowtrek:/home/jovyan/snowtrek --name spare-0 snowtire:latest
+        docker run -p 8888:8888 -v ~/DockerImages/snowtrek:/home/jovyan/snowtrek --name snowtrek_v2 snowtire:latest
         
     The output should be similar to the following
 
@@ -83,3 +83,11 @@ The following instructions show to to build a Notebook server using a docker con
         [I 20:42:43.751 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 
 1. Start a browser session (Safari, Chrome, ...). Paste the line with the local host address (127.0.0.1) printed in **your shell window** into the browser status bar and update the port (8888) to **your port** in case you have changed the port in the step above.
+
+1. Use docker commands to start and stop the container 
+
+        docker [start/stop/restart] snowtrek_v2
+    
+    After starting/restaring the container you can get the security token by running
+    
+        docker logs snowflake_v2
