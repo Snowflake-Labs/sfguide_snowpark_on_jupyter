@@ -70,7 +70,7 @@ The following instructions show to to build a Notebook server using a docker con
         
 1. Start den Snowtire container and mount the snowtrek directory to the container. The command below assumes that you cloned snowtrek to ~/DockerImages/snowtrek. Adjust the path accordingly if necessary. 
 
-        docker run -p 8888:8888 -v ~/DockerImages/snowtrek:/home/jovyan/snowtrek --name snowtrek_v2 snowtire:latest
+        docker run -p 8888:8888 -v ~/DockerImages/snowtrek_V2:/home/jovyan/snowtrek_V2 --name snowtrek_v2 snowtire:latest
         
     The output should be similar to the following
 
