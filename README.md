@@ -24,11 +24,11 @@ Versions used in this notebook are up-to-date as of August 2021. Please update t
     The first notebook in this series provides a quick-start guide and an introduction to the Snowpark dataframe API. The notebook explains the steps for setting up the environment (REPL), and how to resolve dependencies to Snowpark. After a simple "Hello World" example you will learn about the Snowflake dataframe API, projections, filters, and joins.
  
 
-- [Part 2](notebook/part1/part2.ipynb) 
+- [Part 2](notebook/part2/part2.ipynb) 
 
     The second notebook in the series builds on the quick-start of the first part. Using the TPCH dataset in the sample database, it shows how to use aggregations and pivot functions in the Snowpark dataframe API. Then it introduces UDFs and how to build a stand-alone UDF, i.e. a UDF that only uses standard primitives. From there we will learn how to use third party Scala libraries to perform much more complex tasks like math for numbers with unbound (unlimited number of significant digits) precision or how to perform sentiment analysis on an arbitrary string.
     
-- [Part 3](notebook/part1/part3.ipynb) 
+- [Part 3](notebook/part3/part3.ipynb) 
 
     The third notebook combines the learnings from part 1 & 2. It implements an end-to-end ML use-case including data ingestion, ETL/ELT transformations, Model training, Model scoring, and finally result visualization.
     
