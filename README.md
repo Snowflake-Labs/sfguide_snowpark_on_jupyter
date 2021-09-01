@@ -46,16 +46,6 @@ The following instructions show how to build a Notebook server using a Docker co
         git clone https://github.com/zoharsan/snowtire_v2.git
         cd snowtire_v2/
 
-1. Add the following lines at the end of file **Dockerfile** , using a text editor:
-
-        RUN sudo -u jovyan /opt/conda/bin/python -m pip install --upgrade nbformat
-        RUN sudo -u jovyan /opt/conda/bin/python -m pip install jupyter_contrib_nbextensions
-        RUN sudo -u jovyan /opt/conda/bin/jupyter contrib nbextension install --user
-        RUN sudo -u jovyan /opt/conda/bin/jupyter nbextensions_configurator enable --user
-        RUN sudo -u jovyan /opt/conda/bin/jupyter nbextension enable collapsible_headings/main
-        RUN sudo -u jovyan /opt/conda/bin/jupyter nbextension enable execute_time/ExecuteTime
-        RUN sudo -u jovyan /opt/conda/bin/jupyter nbextension enable codefolding/main
-
 1. Build the image and get the latest kernel and drivers:
 
         docker build --pull -t snowtire . \
@@ -74,7 +64,7 @@ The following instructions show how to build a Notebook server using a Docker co
         
 1. Start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
 
-        docker run -p 8888:8888 -v ~/DockerImages/snowtrek_V2:/home/jovyan/snowtrek_V2 --name snowtrek_v2 snowtire:latest
+        docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v ~/DockerImages/snowtrek_V2:/home/jovyan/snowtrek_V2 --name snowtrek_v2 snowtire:latest
         
     The output should be similar to the following
 
