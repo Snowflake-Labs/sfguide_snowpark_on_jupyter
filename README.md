@@ -60,7 +60,7 @@ The following instructions show how to build a Notebook server using a Docker co
 
         cd ~/DockerImages
         git clone git@github.com:snowflakecorp/snowtrek_V2.git
-        cd snowtrek
+        cd snowtrek_V2
         
 1. Start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
 
