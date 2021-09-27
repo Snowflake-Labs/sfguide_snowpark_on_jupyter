@@ -12,7 +12,7 @@ Snowflake has always provided drivers (Python, Spark, JDBC, and many more) to ac
 
 With Snowpark, we remove both issues. The current version of Snowpark introduces support for Scala, a well know language for data piplines, ELT/ETL, ML, big data projects and other use cases. Snowpark enables us to take advantage of standard libraries to bring custom features directly to data to create a scalable and easy to use experience in the Data Cloud.
 
-This repo is structured in multiple parts. Each part has a [notebook](notebook) with specific focus areas. All notebooks in this series require a Jupyter Notebook environment with a Scala kernel.  If you do not already have access to that type of environment, I would highly recommend that you use [Snowtire V2](https://github.com/zoharsan/snowtire_v2) and this excellent post [From Zero to Snowpark in 5 minutes](https://medium.com/snowflake/from-zero-to-snowpark-in-5-minutes-72c5f8ec0b55). Please note that Snowtire is not officially supported by Snowflake, and is provided as-is. Additional instructions on how to set up the environment with the latest versions can be found in the README file in this repo. 
+This repo is structured in multiple parts. Each part has a [notebook](notebook) with specific focus areas. All notebooks in this series require a Jupyter Notebook environment with a Scala kernel.  
 
 All notebooks will be fully self contained, meaning that all you need for processing and analyzing datasets is a Snowflake account.  If you do not have a Snowflake account, you can sign up for a [free trial](https://signup.snowflake.com/). It doesn't even require a credit card.
 
@@ -38,50 +38,36 @@ The following instructions show how to build a Notebook server using a Docker co
 
 1. Download and install [Docker](https://docs.docker.com/docker-for-mac/install/).
 
-1. Clone the Snowtire repo: 
+1. Clone the Snowtrek repo: 
 
         cd ~
         mkdir DockerImages
         cd DockerImages
-        git clone https://github.com/zoharsan/snowtire_v2.git
-        cd snowtire_v2/
-
-1. Build the image and get the latest kernel and drivers:
-
-        docker build --pull -t snowtire . \
-        --build-arg odbc_version=2.23.2 \
-        --build-arg jdbc_version=3.13.4 \
-        --build-arg spark_version=2.9.1-spark_3.1 \
-        --build-arg snowsql_version=1.2.14 \
-        --build-arg almond_version=0.11.1 \
-        --build-arg scala_kernel_version=2.12.12
-        
-1. Clone the Snowtrek: 
-
-        cd ~/DockerImages
         git clone git@github.com:snowflakecorp/snowtrek_V2.git
-        cd snowtrek_V2
         
-1. Start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
+1. Starting your Snowtrek environment
 
-        docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v ~/DockerImages/snowtrek_V2:/home/jovyan/snowtrek_V2 --name snowtrek_v2 snowtire:latest
+    Type the following commands to start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
+
+        cd ~/DockerImages/snowtrek_V2
+        docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowtrek --name snowtrek rfehrmannsfc/snowtrek:latest
         
     The output should be similar to the following
 
-        [I 2021-08-09 20:42:43.745 LabApp] JupyterLab extension loaded from /opt/conda/lib/python3.9/site-packages/jupyterlab
-        [I 2021-08-09 20:42:43.745 LabApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
-        [I 20:42:43.751 NotebookApp] Serving notebooks from local directory: /home/jovyan
-        [I 20:42:43.751 NotebookApp] Jupyter Notebook 6.4.0 is running at:
-        [I 20:42:43.751 NotebookApp] http://7f4d1922ad40:8888/?token=c3223df0b33e6232bbb06f3e403d481da4bfe515f23873f2
-        [I 20:42:43.751 NotebookApp]  or http://127.0.0.1:8888/?token=c3223df0b33e6232bbb06f3e403d481da4bfe515f23873f2
-        [I 20:42:43.751 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+        To access the server, open this file in a browser:
+            file:///home/jovyan/.local/share/jupyter/runtime/jpserver-15-open.html
+        Or copy and paste one of these URLs:
+            http://162e383e431c:8888/lab?token=bdaead06c9944057a86f9d8a823cebad4ce66799d855be5d
+            http://127.0.0.1:8888/lab?token=bdaead06c9944057a86f9d8a823cebad4ce66799d855be5d
+            
 
 1. Start a browser session (Safari, Chrome, ...). Paste the line with the local host address (127.0.0.1) printed in **your shell window** into the browser status bar and update the port (8888) to **your port** in case you have changed the port in the step above.
 
-1. Use Docker commands to start and stop the container: 
-
-        docker [start/stop/restart] snowtrek_v2
+1. Stopping your Snowtrek environment
     
-    After starting/restaring the container you can get the security token by running this command
+    Type the following command into a new shell window when you want to stop your the tutorial. All changes/work will be saved on your local machine. 
     
-        docker logs snowflake_v2
+        docker stop snowtrek
+        
+    This command will stop the container and delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](Starting-your-Snowtrek-environment) (be sure to be in the *DockerImages* directory )
+        
