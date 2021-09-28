@@ -45,7 +45,7 @@ The following instructions show how to build a Notebook server using a Docker co
         cd DockerImages
         git clone git@github.com:snowflakecorp/snowtrek_V2.git
         
-1. Starting your Snowtrek environment
+1. <a name="starting-your-snowtrek-environment">Starting your Snowtrek environment </a>
 
     Type the following commands to start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
 
@@ -69,5 +69,5 @@ The following instructions show how to build a Notebook server using a Docker co
     
         docker stop snowtrek
         
-    This command will stop the container and delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](Starting-your-Snowtrek-environment) (be sure to be in the *DockerImages* directory )
+    This command will stop and then delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](#starting-your-snowtrek-environment).
         
