@@ -32,9 +32,9 @@ Versions used in this notebook are up-to-date as of August 2021. Please update t
 
     The third notebook combines what you learned in part 1 and 2. It implements an end-to-end ML use case including data ingestion, ETL/ELT transformations, model training, model scoring, and result visualization.
     
-## Running Jupyter on Snowtire V2
+## Running Jupyter locally
 
-The following instructions show how to build a Notebook server using a Docker container. After the base install of Snowtire V2, we will a add few parameters for *[nbextensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)*.
+The following instructions show how to build a Notebook server using a Docker container.
 
 1. Download and install [Docker](https://docs.docker.com/docker-for-mac/install/).
 
@@ -45,12 +45,17 @@ The following instructions show how to build a Notebook server using a Docker co
         cd DockerImages
         git clone git@github.com:snowflakecorp/snowtrek_V2.git
         
+1. Build the Docker container
+
+        cd ~/DockerImages/snowtrek_V2/docker
+        docker build -t snowtrek .
+        
 1. <a name="starting-your-snowtrek-environment">Starting your Snowtrek environment </a>
 
     Type the following commands to start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
 
         cd ~/DockerImages/snowtrek_V2
-        docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowtrek --name snowtrek rfehrmannsfc/snowtrek:latest
+        docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowtrek --name snowtrek snowtrek
         
     The output should be similar to the following
 
@@ -71,3 +76,28 @@ The following instructions show how to build a Notebook server using a Docker co
         
     This command will stop and then delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](#starting-your-snowtrek-environment).
         
+## Running Jupyter in the cloud
+
+In case you can't install docker on your local machine you could run the tutorial in AWS on an [AWS Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html).
+
+1. Create a Notebook instance
+
+To create a Notebook instance, create a Lifecycle policy first
+
+        #!/bin/bash
+        set -e
+        # OVERVIEW
+        # This script installs a jupyterlab extension package in SageMaker Notebook Instance
+        sudo -u ec2-user -i <<'EOF'
+        # PARAMETERS
+        ALMOND_VERSION=0.10.9
+        SCALA_VERSION=2.12.12
+        JAVA_HOME=/home/ec2-user/anaconda3/envs/JupyterSystemEnv
+        PATH=$JAVA_HOME/bin:$PATH
+            java --version
+            cd /tmp
+            curl -Lo coursier https://git.io/coursier-cli
+            chmod +x coursier
+            ./coursier launch --fork almond:$ALMOND_VERSION --scala $SCALA_VERSION -- --install --force
+            rm -f coursier
+        EOF
