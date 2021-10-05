@@ -88,27 +88,7 @@ In case you can't install docker on your local machine you could run the tutoria
 
    <img src="jpg/create_lifecycle_policy.png" width="200" height="200" />
 
-   Take the script below and paste it into the editor window.
-
-        #!/bin/bash
-        set -e
-        # OVERVIEW
-        # This script installs a jupyterlab extension package in SageMaker Notebook Instance
-        sudo -u ec2-user -i <<'EOF'
-            # PARAMETERS
-            ALMOND_VERSION=0.10.9
-            SCALA_VERSION=2.12.12
-            JAVA_HOME=/home/ec2-user/anaconda3/envs/JupyterSystemEnv
-            PATH=$JAVA_HOME/bin:$PATH
-            cd /tmp
-            curl -Lo coursier https://git.io/coursier-cli
-            chmod +x coursier
-            ./coursier launch --fork almond:$ALMOND_VERSION --scala $SCALA_VERSION -- --install --force
-            rm -f coursier
-            source /home/ec2-user/anaconda3/bin/activate JupyterSystemEnv
-            jupyter labextension install jupyterlab-plotly
-            source /home/ec2-user/anaconda3/bin/deactivate
-        EOF
+   Take the [lifecycle script](docker/onstart) paste it into the editor window.
     
    Creating the Notebook takes about 8 minutes.
 
