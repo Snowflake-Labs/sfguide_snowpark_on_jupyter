@@ -88,7 +88,7 @@ In case you can't install docker on your local machine you could run the tutoria
 
    <img src="jpg/create_lifecycle_policy.png" width="200" height="200" />
 
-   Take the [lifecycle script](docker/onstart) paste it into the editor window.
+   Open the [lifecycle script](docker/onstart) and paste its content into the editor window.
     
    Creating the Notebook takes about 8 minutes.
 
