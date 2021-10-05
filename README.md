@@ -81,12 +81,14 @@ The following instructions show how to build a Notebook server using a Docker co
 In case you can't install docker on your local machine you could run the tutorial in AWS on an [AWS Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html).
 
 1. Create a Notebook instance
-<img src="jpg/create_notebook.png" width="200" height="200" />
 
-1. Create a the Lifecycle Policy.
-<img src="jpg/create_lifecycle_policy.png" width="200" height="200" />
+   <img src="jpg/create_notebook.png" width="200" height="200" />
 
-	Take the script below and paste it into the editor window.
+1. Create a Lifecycle Policy.
+
+   <img src="jpg/create_lifecycle_policy.png" width="200" height="200" />
+
+   Take the script below and paste it into the editor window.
 
         #!/bin/bash
         set -e
@@ -107,13 +109,13 @@ In case you can't install docker on your local machine you could run the tutoria
             jupyter labextension install jupyterlab-plotly
             source /home/ec2-user/anaconda3/bin/deactivate
         EOF
-
-	Creating the Notebook takes about 8 minutes.
+    
+   Creating the Notebook takes about 8 minutes.
 
 1. Upload the tutorial folder (github repo zipfile)
 
 1. Unzip folder
 
-    Open the Launcher, start a termial window and run the command below (substitue <filename> with your filename.
+   Open the Launcher, start a termial window and run the command below (substitue <filename> with your filename.
 
         unzip <filename> -d SageMaker/
