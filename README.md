@@ -18,6 +18,7 @@ All notebooks will be fully self contained, meaning that all you need for proces
 
 Versions used in this notebook are up-to-date as of August 2021. Please update them as necessary in the Snowtire setup step.
 
+# Tutorial
 
 - [Part 1](notebook/part1/part1.ipynb) 
 
@@ -99,3 +100,5 @@ In case you can't install docker on your local machine you could run the tutoria
    Open the Launcher, start a termial window and run the command below (substitue <filename> with your filename.
 
         unzip SageMaker/<filename> -d SageMaker/
+
+After you have set either your docker or your cloud based notebook environment start with Part1 in the [Tutorial](#Tutorial).
