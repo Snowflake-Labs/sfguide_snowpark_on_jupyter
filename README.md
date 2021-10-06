@@ -6,19 +6,32 @@ Snowtrek V2 is a project to show how to get started with Jupyter Notebooks on [S
 
 Snowpark not only works with Jupyter Notebooks but with a variety of IDEs. Instructions on how to set up your favorite development environment can be found in the Snowpark documentation under [Setting Up Your Development Environment for Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/setup.html).
 
-Snowpark is a new developer experience that lets developers interact with data without first having to extract it. It's the glue between different programming languages and Snowflake. 
+# Snowpark
+Snowpark is a new developer framework of Snowflake. It brings deeply integrated, DataFrame-style programming to the languages developers like to use, and functions to help you expand more data use cases easily, all executed inside of Snowflake. Snowpark support starts with Scala API, Java UDFs, and External Functions.  
 
-Snowflake has always provided drivers (Python, Spark, JDBC, and many more) to access data in Snowflake from different programming environments. When accessing Snowflake through these drivers, results have to be passed back and forth for processing, which may raise performance and scalability concerns when processing big datasets. Snowflake also has user-defined functions or UDFs, which execute custom code directly within the Snowflake engine but UDFs did not have access to already existing standard libraries and had limited language support. 
+With Snowpark, developers can program using a familiar construct like the DataFrame, and bring in complex transformation logic through UDFs, and then execute directly against Snowflake’s processing engine, leveraging all of its performance and scalability characteristics in the Data Cloud. 
 
-With Snowpark, we remove both issues. The current version of Snowpark introduces support for Scala, a well know language for data piplines, ELT/ETL, ML, big data projects and other use cases. Snowpark enables us to take advantage of standard libraries to bring custom features directly to data to create a scalable and easy to use experience in the Data Cloud.
+Snowpark provides several benefits over how developers have designed and coded data driven solutions in the past:
+
+1. Simplify architecture and data pipelines by bringing different data users to the same data platform, and process against the same data without  moving it around. 
+
+1. Accelerate data pipeline workloads by executing with performance, reliability, scalability with Snowflake’s elastic performance engine.  
+ 
+1. Eliminate maintenance and overhead with managed services with near-zero maintenance. 
+
+1. One governance framework and set of policies to maintain by using a single platform.
+
+1. Highly secure with administrators having full control over which libraries are allowed to execute inside the Java/Scala runtimes for Snowpark.
+
+The following tutorial highlights these benefits and lets you experience Snowpark in your environment.
+
+# Tutorial
 
 This repo is structured in multiple parts. Each part has a [notebook](notebook) with specific focus areas. All notebooks in this series require a Jupyter Notebook environment with a Scala kernel.  
 
 All notebooks will be fully self contained, meaning that all you need for processing and analyzing datasets is a Snowflake account.  If you do not have a Snowflake account, you can sign up for a [free trial](https://signup.snowflake.com/). It doesn't even require a credit card.
 
 Versions used in this notebook are up-to-date as of August 2021. Please update them as necessary in the Snowtire setup step.
-
-# Tutorial
 
 - [Part 1](notebook/part1/part1.ipynb) 
 
@@ -32,6 +45,10 @@ Versions used in this notebook are up-to-date as of August 2021. Please update t
 - [Part 3](notebook/part3/part3.ipynb) 
 
     The third notebook combines what you learned in part 1 and 2. It implements an end-to-end ML use case including data ingestion, ETL/ELT transformations, model training, model scoring, and result visualization.
+    
+## Building a runtime environment
+    
+There are 2 options for running the different notebooks. You can either run them on a docker container (locally or cloud based), or you can run them via a hosted notebook service. As an example I am showing how to run the tutorial on AWS SageMaker Notebooks.
     
 ## Running Jupyter locally
 
@@ -77,7 +94,7 @@ The following instructions show how to build a Notebook server using a Docker co
         
     This command will stop and then delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](#starting-your-snowtrek-environment).
         
-## Running Jupyter in the cloud
+## Running Jupyter in a hosted environment
 
 In case you can't install docker on your local machine you could run the tutorial in AWS on an [AWS Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html).
 
