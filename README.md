@@ -101,4 +101,4 @@ In case you can't install docker on your local machine you could run the tutoria
 
         unzip SageMaker/<filename> -d SageMaker/
 
-After you have set either your docker or your cloud based notebook environment start with Part1 in the [Tutorial](#Tutorial).
+After you have set up either your docker or your cloud based notebook environment start with Part1 in the [Tutorial](#Tutorial).
