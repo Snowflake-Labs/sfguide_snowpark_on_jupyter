@@ -7,5 +7,5 @@ FROM almondsh/almond:$almond_version-scala-$scala_kernel_version
 USER root
 RUN apt-get update && apt-get upgrade -y && apt-get install -y openjdk-8-jdk
 USER jovyan
-RUN pip install Jupyterlab==3.1.14 
-RUN jupyter labextension install jupyterlab-plotly  
+RUN pip install Jupyterlab==3.1.17 
+RUN jupyter labextension install jupyterlab-plotly@5.3.1
