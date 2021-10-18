@@ -114,7 +114,7 @@ In case you can't install docker on your local machine you could run the tutoria
 
 1. Unzip folder
 
-   Open the Launcher, start a termial window and run the command below (substitue <filename> with your filename.
+   Open the Launcher, start a terminal window and run the command below (substitue <filename> with your filename).
 
         unzip SageMaker/<filename> -d SageMaker/
 
