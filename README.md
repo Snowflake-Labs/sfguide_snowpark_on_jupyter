@@ -13,15 +13,15 @@ With Snowpark, developers can program using a familiar construct like the DataFr
 
 Snowpark provides several benefits over how developers have designed and coded data driven solutions in the past:
 
-1. Simplify architecture and data pipelines by bringing different data users to the same data platform, and process against the same data without  moving it around. 
+1. Simplifies architecture and data pipelines by bringing different data users to the same data platform, and process against the same data without  moving it around. 
 
-1. Accelerate data pipeline workloads by executing with performance, reliability, scalability with Snowflake’s elastic performance engine.  
+1. Accelerates data pipeline workloads by executing with performance, reliability, and scalability with Snowflake’s elastic performance engine.  
  
-1. Eliminate maintenance and overhead with managed services with near-zero maintenance. 
+1. Eliminates maintenance and overhead with managed services and near-zero maintenance. 
 
-1. One governance framework and set of policies to maintain by using a single platform.
+1. Creates a single governance framework and a single set of policies to maintain by using a single platform.
 
-1. Highly secure with administrators having full control over which libraries are allowed to execute inside the Java/Scala runtimes for Snowpark.
+1. Provides a highly secure environment with administrators having full control over which libraries are allowed to execute inside the Java/Scala runtimes for Snowpark.
 
 The following tutorial highlights these benefits and lets you experience Snowpark in your environment.
 
@@ -31,7 +31,7 @@ This repo is structured in multiple parts. Each part has a [notebook](notebook) 
 
 All notebooks will be fully self contained, meaning that all you need for processing and analyzing datasets is a Snowflake account.  If you do not have a Snowflake account, you can sign up for a [free trial](https://signup.snowflake.com/). It doesn't even require a credit card.
 
-Versions used in this notebook are up-to-date as of August 2021. Please update them as necessary in the Snowtire setup step.
+Versions used in this notebook are up-to-date as of August 2021. 
 
 - [Part 1](notebook/part1/part1.ipynb) 
 
