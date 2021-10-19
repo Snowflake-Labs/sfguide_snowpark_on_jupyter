@@ -1,8 +1,8 @@
-# Snowpark on Jupyter and Beyond
+# Snowpark on Jupyter Getting Started Guide
 
 ![](jpg/stock_small.jpg)
 
-This project will demonstrate how to get started with Jupyter Notebooks on [Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/index.html), a new product feature announced by Snowflake for [public preview](https://www.snowflake.com/blog/welcome-to-snowpark-new-data-programmability-for-the-data-cloud/) during the 2021 Snowflake Summit. With Snowtrek V2 you will learn how to tackle real world business problems as straightforward as ELT processing but also as diverse as math with rational numbers with unbounded precision, sentiment analysis and machine learning.
+This project will demonstrate how to get started with Jupyter Notebooks on [Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/index.html), a new product feature announced by Snowflake for [public preview](https://www.snowflake.com/blog/welcome-to-snowpark-new-data-programmability-for-the-data-cloud/) during the 2021 Snowflake Summit. You will learn how to tackle real world business problems as straightforward as ELT processing but also as diverse as math with rational numbers with unbounded precision, sentiment analysis and machine learning.
 
 Snowpark not only works with Jupyter Notebooks but with a variety of IDEs. Instructions on how to set up your favorite development environment can be found in the Snowpark documentation under [Setting Up Your Development Environment for Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/setup.html).
 
@@ -35,7 +35,7 @@ Versions used in this notebook are up-to-date as of August 2021.
 
 - [Part 1](notebook/part1/part1.ipynb) 
 
-    The first notebook in this series provides a quick-start guide and an introduction to the Snowpark DataFram API. The notebook explains the steps for setting up the environment (REPL), and how to resolve dependencies to Snowpark. After a simple "Hello World" example you will learn about the Snowflake DataFrame API, projections, filters, and joins.
+    The first notebook in this series provides a quick-start guide and an introduction to the Snowpark DataFrame API. The notebook explains the steps for setting up the environment (REPL), and how to resolve dependencies to Snowpark. After a simple "Hello World" example you will learn about the Snowflake DataFrame API, projections, filters, and joins.
  
 
 - [Part 2](notebook/part2/part2.ipynb) 
@@ -56,24 +56,25 @@ The following instructions show how to build a Notebook server using a Docker co
 
 1. Download and install [Docker](https://docs.docker.com/docker-for-mac/install/).
 
-1. Clone the Snowtrek repo: 
+1. Clone the Github Lab [Repo](https://github.com/Snowflake-Labs/sfguide_snowpark_on_jupyter/): 
 
         cd ~
         mkdir DockerImages
+        
         cd DockerImages
-        git clone git@github.com:snowflakecorp/snowtrek_V2.git
+        git clone git@github.com:Snowflake-Labs/sfguide_snowpark_on_jupyter.git
         
 1. Build the Docker container
 
-        cd ~/DockerImages/snowtrek_V2/docker
-        docker build -t snowtrek .
+        cd ~/DockerImages/sfguide_snowpark_on_jupyter/docker
+        docker build -t snowparklab .
         
-1. <a name="starting-your-snowtrek-environment">Starting your Snowtrek environment </a>
+1. <a name="starting-your-jupyter-environment">Starting your Jupyter environment </a>
 
-    Type the following commands to start the Snowtire container and mount the Snowtrek directory to the container. The command below assumes that you have cloned Snowtrek V2 to ~/DockerImages/snowtrek_V2. Adjust the path if necessary. 
+    Type the following commands to start the Snowtire container and mount the Snowpark Lab directory to the container. The command below assumes that you have cloned the git repo to ~/DockerImages/sfguide_snowpark_on_jupyterJupyter. Adjust the path if necessary. 
 
-        cd ~/DockerImages/snowtrek_V2
-        docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowtrek --name snowtrek snowtrek
+        cd ~/DockerImages/sfguide_snowpark_on_jupyter
+        docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowparklab --name snowparklab snowparklab
         
     The output should be similar to the following
 
@@ -86,13 +87,13 @@ The following instructions show how to build a Notebook server using a Docker co
 
 1. Start a browser session (Safari, Chrome, ...). Paste the line with the local host address (127.0.0.1) printed in **your shell window** into the browser status bar and update the port (8888) to **your port** in case you have changed the port in the step above.
 
-1. Stopping your Snowtrek environment
+1. Stopping your Jupyter environment
     
     Type the following command into a new shell window when you want to stop your the tutorial. All changes/work will be saved on your local machine. 
     
-        docker stop snowtrek
+        docker stop snowparklab
         
-    This command will stop and then delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Snowtrek environment](#starting-your-snowtrek-environment).
+    This command will stop and then delete the container. When you want to restart the tutorial, just run the commands above in [Starting your Jupyter environment](#starting-your-jupyter-environment).
         
 ## Running Jupyter in a hosted environment
 
