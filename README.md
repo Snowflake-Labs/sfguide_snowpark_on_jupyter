@@ -71,7 +71,7 @@ The following instructions show how to build a Notebook server using a Docker co
         
 1. <a name="starting-your-jupyter-environment">Starting your Jupyter environment </a>
 
-    Type the following commands to start the Snowtire container and mount the Snowpark Lab directory to the container. The command below assumes that you have cloned the git repo to ~/DockerImages/sfguide_snowpark_on_jupyterJupyter. Adjust the path if necessary. 
+    Type the following commands to start the container and mount the Snowpark Lab directory to the container. The command below assumes that you have cloned the git repo to ~/DockerImages/sfguide_snowpark_on_jupyterJupyter. Adjust the path if necessary. 
 
         cd ~/DockerImages/sfguide_snowpark_on_jupyter
         docker run -it --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$(pwd)":/home/jovyan/snowparklab --name snowparklab snowparklab
